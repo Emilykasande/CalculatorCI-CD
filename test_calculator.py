@@ -2,22 +2,20 @@
 unit tests for the calculator functions
 """
 # import pytest
-from calculator import add_numbers, multiply_numbers, get_numbers
+from calculator import get_numbers, add_numbers, multiply_numbers
 from unittest.mock import patch
 
 
-@patch('builtins.input', side_effect=['5', '10', 'done'])
-def test_get_numbers_valid(mock_input):
-    # test getting valid numbers from user
-    result = get_numbers()
-    assert result == [5.0, 10.0]
+def test_add_numbers_positive():
+    # test addition with positive numbers
+    assert add_numbers([1, 2, 3]) == 6
+    assert add_numbers([10, 20]) == 30
 
 
-@patch('builtins.input', side_effect=['5', 'abc', '10', 'done'])
-def test_get_numbers_with_invalid(mock_input):
-    # test getting numbers with invalid input
-    result = get_numbers()
-    assert result == [5.0, 10.0]
+def test_add_numbers_negative():
+    # test addition with negative numbers
+    assert add_numbers([-1, -2, -3]) == -6
+    assert add_numbers([10, -5]) == 5
 
 
 def test_add_numbers_single():
@@ -52,3 +50,17 @@ def test_multiply_numbers_negative():
     # test multiplication with negative numbers
     assert multiply_numbers([2, -10]) == -20
     assert multiply_numbers([-4, -4]) == 16
+
+
+@patch('builtins.input', side_effect=['5', '10', 'done'])
+def test_get_numbers_valid(mock_input):
+    # test getting valid numbers from user
+    result = get_numbers()
+    assert result == [5.0, 10.0]
+
+
+@patch('builtins.input', side_effect=['5', 'abc', '10', 'done'])
+def test_get_numbers_with_invalid(mock_input):
+    # test getting numbers with invalid input
+    result = get_numbers()
+    assert result == [5.0, 10.0]

@@ -18,30 +18,31 @@ def get_numbers():
             print("Invalid input please enter a number")
     return numbers
 
+
 def add_numbers(numbers):
-    """
+    '''
     Add all numbers in the list
     Args:
         numbers (list): List of numbers to add
     Returns:
         float: Sum of all numbers
-    """
+    '''
     return sum(numbers)
 
 
 def multiply_numbers(numbers):
-    """
+    '''
     Multiply all numbers in the list
     Args:
         numbers (list): List of numbers to multiply
     Returns:
         float: Product of all numbers
-    """
+    '''
     result = 1
     for number in numbers:
         result *= number
-    return result
 
+    return result
 
 
 def main():
@@ -63,7 +64,7 @@ def main():
         print(f"\n Result: {' + '.join(map(str, numbers))} = {result}")
     elif choice == '2':
         result = multiply_numbers(numbers)
-        print(f"\n Result: {' * '.join(map(str, numbers))} = {result}")
+        print(f"\n Result: {' x '.join(map(str, numbers))} = {result}")
     else:
         print("Invalid choice")
 
