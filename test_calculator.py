@@ -64,3 +64,5 @@ def test_get_numbers_with_invalid(mock_input):
     # test getting numbers with invalid input
     result = get_numbers()
     assert result == [5.0, 10.0]
+
+    
