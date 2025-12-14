@@ -67,8 +67,7 @@ def main():
         print(f"\n Result: {' x '.join(map(str, numbers))} = {result}")
     else:
         print("Invalid choice")
-
-
+        
 if __name__ == "_main_":
     main()
-    
+
